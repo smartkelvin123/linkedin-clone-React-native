@@ -2,10 +2,10 @@ import { StyleSheet } from "react-native";
 
 import { Text, View } from "../../components/Themed";
 
-export default function netWorkScreen() {
+export default function JobScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Network</Text>
+      <Text style={styles.title}>job screen</Text>
     </View>
   );
 }
