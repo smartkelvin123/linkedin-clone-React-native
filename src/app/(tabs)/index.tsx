@@ -4,7 +4,7 @@ import { View } from "../../components/Themed";
 import posts from "../../../assets/data/posts.json";
 import PostListItem from "../../components/PostListItem";
 
-const firstPost = posts[0];
+const firstPost = posts[1];
 
 export default function TabOneScreen() {
   return (
