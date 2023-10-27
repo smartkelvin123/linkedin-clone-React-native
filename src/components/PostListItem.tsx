@@ -1,19 +1,40 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, View, Image } from "react-native";
+import { Post } from "@/types";
 
 type PostListItemProps = {
-  post: {
-    content: string;
-  };
+  post: Post;
 };
 
 export default function PostListItem({ post }: PostListItemProps) {
-  return <Text style={styles.text}>{post.content}</Text>;
+  return (
+    <View style={styles.container}>
+      <View>
+        <Image source={{ uri: post.author.image }} style={styles.Image} />
+        <Text style={styles.text}>{post.author.position}</Text>
+      </View>
+      <Text style={styles.Username}>{post.author.name}</Text>
+
+      <Text style={styles.text}>{post.content}</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
+  container: {},
   text: {
     color: "white",
+  },
+  Username: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  Image: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 10,
   },
 });
 

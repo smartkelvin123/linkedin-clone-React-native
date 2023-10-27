@@ -7,6 +7,7 @@ import Colors from "../../constants/Colors";
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  * i understand that the icon are built  in
+ * i unswrstand that you dont need any import of files
  */
 
 function TabBarIcon(props: {
