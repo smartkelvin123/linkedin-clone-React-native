@@ -9,19 +9,26 @@ type PostListItemProps = {
 export default function PostListItem({ post }: PostListItemProps) {
   return (
     <View style={styles.container}>
-      <View>
-        <Image source={{ uri: post.author.image }} style={styles.Image} />
-        <Text style={styles.text}>{post.author.position}</Text>
+      <Image source={{ uri: post.author.image }} style={styles.Image} />
+      <View style={styles.textContainer}>
+        <View>
+          <Text style={styles.Username}>{post.author.name}</Text>
+          <Text style={styles.text}>{post.author.position}</Text>
+        </View>
+        <Text style={styles.text}>{post.content}</Text>
       </View>
-      <Text style={styles.Username}>{post.author.name}</Text>
-
-      <Text style={styles.text}>{post.content}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  textContainer: {
+    flex: 1,
+  },
   text: {
     color: "white",
   },
@@ -37,7 +44,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
 });
-
 // type PostListItemProps = {
 //   post: Post;
 // };
