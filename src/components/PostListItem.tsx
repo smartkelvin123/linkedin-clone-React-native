@@ -9,9 +9,10 @@ type PostListItemProps = {
 
 type FooterButtonProp = {
   text: string;
-  icon: React.ComponentProps<typeof FontAwesome>["name"];
+  icon: React.ComponentProps<typeof FontAwesome>["name"]; // Fontawesome makes it specific rather than a string
 };
 
+// reusable component
 const FooterButton = ({ text, icon }: FooterButtonProp) => (
   <View style={styles.footerButton}>
     <FontAwesome name={icon} size={16} color="gray" />
