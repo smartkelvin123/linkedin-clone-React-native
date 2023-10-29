@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { Text, ScrollView } from "react-native";
 
 import posts from "../../../assets/data/posts.json";
 import PostListItem from "../../components/PostListItem";

@@ -7,7 +7,8 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
-
+// import ExperienceListItem from "@/components/ExperienceListItem";
+import ExperienceListItem from "../../components/ExperienceListItem";
 import dummyUser from "../../../assets/data/user.json";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { User } from "@/types";
@@ -50,6 +51,12 @@ const UserProfile = () => {
 
       <View style={styles.container}>
         <Text style={styles.title}>Experience</Text>
+      </View>
+
+      <View style={styles.container}>
+        {user.experience?.map((experience) => (
+          <ExperienceListItem key={experience.id} experience={experience} />
+        ))}
       </View>
     </ScrollView>
   );
