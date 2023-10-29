@@ -17,9 +17,14 @@ const UserProfile = () => {
   const { id } = useLocalSearchParams();
   const navigation = useNavigation();
 
+  //   this is to avoid not to be called whenever the component renders
   useLayoutEffect(() => {
     navigation.setOptions({ title: user.name });
   }, [user]);
+
+  const onConnect = () => {
+    console.warn("pressed");
+  };
 
   return (
     <ScrollView>
@@ -29,13 +34,13 @@ const UserProfile = () => {
           <Image source={{ uri: user.image }} style={styles.image} />
           <Text style={styles.name}>{user.name}</Text>
           <Text>{user.position}</Text>
-
-          <Pressable style={styles.button}>
+          {/* connect  */}
+          <Pressable style={styles.button} onPress={onConnect}>
             <Text style={styles.buttonText}>Connect</Text>
           </Pressable>
         </View>
       </View>
-
+      {/* about */}
       {user.about && (
         <View style={styles.container}>
           <Text style={styles.title}>About</Text>
@@ -101,53 +106,3 @@ const styles = StyleSheet.create({
 });
 
 export default UserProfile;
-
-// import { StyleSheet, Text, View, Image } from "react-native";
-// import React, { useState } from "react";
-// import { useLocalSearchParams } from "expo-router";
-// import userJson from "../../../assets/data/posts.json";
-// import { User } from "@/types";
-
-// const UserProfile = () => {
-//   const [user, setUser] = useState(userJson);
-
-//   const { id } = useLocalSearchParams();
-//   return (
-//     <View style={styles.container}>
-//       {/* header  */}
-//       <View style={styles.header}>
-//         {/* bg image  */}
-//         <Image source={{ uri: user.backImage }} style={styles.userImage} />
-
-//         {/* profile image  */}
-//         <Image source={{ uri: user.image }} style={styles.image} />
-//       </View>
-//     </View>
-//   );
-// };
-
-// export default UserProfile;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   header: {
-//     backgroundColor: "white",
-//     width: "100%",
-//   },
-//   userImage: {
-//     width: "100%",
-//     height: 150,
-//     marginBottom: -60,
-//   },
-//   image: {
-//     width: 120,
-//     height: 100,
-//     borderRadius: 50,
-//     borderWidth: 3,
-//     borderColor: "white",
-//   },
-// });
