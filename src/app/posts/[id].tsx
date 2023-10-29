@@ -21,3 +21,4 @@ const PostDetailScreen = () => {
 };
 
 export default PostDetailScreen;
+//
