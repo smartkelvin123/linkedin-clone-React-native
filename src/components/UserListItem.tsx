@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { Text, StyleSheet, View, Image, Pressable } from "react-native";
 import { User } from "@/types";
 
-import { Link } from "expo-router";
+import { Link, useNavigation } from "expo-router";
 
 type UserListItemProps = {
   user: User;
 };
 
 const UserListItem = ({ user }: UserListItemProps) => {
+  const [search, setSearch] = useState("");
+  const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerSearchBarOptions: {
+        placeholder: "Search users",
+        onChangeText: setSearch,
+      },
+    });
+  }, [navigation]);
+
   return (
     <View>
       <Link href={`/users/${user.id}`} asChild>
